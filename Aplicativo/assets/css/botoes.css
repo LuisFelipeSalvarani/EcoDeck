@@ -1,0 +1,66 @@
+:root {
+    --font-padrao: #fff;
+    --font-before-padrao: #212121;
+    --btn-background: #48CAE4;
+    --btn-before-background: #ff4500;
+}
+
+.btn-padrao {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  background-color: var(--btn-background);
+  box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  border: none;
+}
+
+.btn-padrao::after {
+  content: " ";
+  width: 0%;
+  height: 100%;
+  background-color: var(--btn-before-background);
+  position: absolute;
+  transition: all 0.4s ease-in-out;
+  right: 0;
+}
+
+.btn-padrao:hover::after {
+  right: auto;
+  left: 0;
+  width: 100%;
+}
+
+.btn-padrao> a {
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  padding: 1.5rem 2rem;
+  color: var(--font-padrao);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.3rem;
+  z-index: 20;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-padrao:hover > a {
+  color: var(--font-before-padrao);
+  animation: scaleUp 0.3s ease-in-out;
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.95);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
