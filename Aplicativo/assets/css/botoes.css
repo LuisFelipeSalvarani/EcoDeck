@@ -1,6 +1,6 @@
 :root {
-    --font-padrao: #fff;
-    --font-before-padrao: #212121;
+    --font-padrao: #212121;
+    --font-before-padrao: #fff;
     --btn-background: #48CAE4;
     --btn-before-background: #ff4500;
 }
