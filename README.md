@@ -1,6 +1,6 @@
 # EcoDeck
 
-![EcoDeck - logo](<EcoDeck - logo.jpg>)
+![EcoDeck - logo](Aplicativo/assets/img/logo.png)
 
 ## Visão Geral
 
