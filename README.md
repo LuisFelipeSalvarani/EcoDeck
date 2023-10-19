@@ -1,6 +1,7 @@
 # EcoDeck
-
-![EcoDeck - logo](Aplicativo/assets/img/logo.png)
+<div align="center">
+  <img src="Aplicativo/assets/img/logo.png" alt="EcoDeck - Logo">
+</div>
 
 ## Visão Geral
 
