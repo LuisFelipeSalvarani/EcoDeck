@@ -37,5 +37,5 @@ O **EcoDeck** é uma solução inovadora que visa fornecer aos usuários um moni
   - [Tifani Mendonça](https://github.com/timendonca)
 - **Orientadores**
   - [José Gonçalves Pinto Junior](https://github.com/jrgoncalves85) | [LinkedIn](https://www.linkedin.com/in/jrgoncalves85/)
-  - Ana Célia Ribeiro Bizigato Portes
+  - [Ana Célia Ribeiro Bizigato Portes](https://github.com/anaceliaportes) | [LinkedIn](https://www.linkedin.com/in/anaceliaportes) 
   - [Mateus Guilherme Fuini](https://github.com/mateusfuini)
