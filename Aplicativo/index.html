@@ -6,6 +6,7 @@
     <title>EcoDeck</title>
     <link rel="stylesheet" href="./assets/css/botoes.css" />
     <link rel="stylesheet" href="./assets/css/index.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   </head>
   <body>
     <!-- Header -->
@@ -15,9 +16,9 @@
         <img src="./assets/img/logo.png" alt="" />
       </div>
       <div class="hamburguer" id="hamburguer">
-        <span class="menu-linha linha-direita"></span>
-        <span class="menu-linha"></span>
-        <span class="menu-linha linha-esquerda"></span>
+        <span class="menu-linha linha-direita" id="linha1"></span>
+        <span class="menu-linha"  id="linha2"></span>
+        <span class="menu-linha linha-esquerda"  id="linha3"></span>
       </div>
       <nav>
         <ul class="menu-links links-hover links-before-hover" id="menu-links">
@@ -35,11 +36,20 @@
     <!-- Main -->
 
     <main>
+      <section class="apresentacao">
+        <div class="apresentacao-texto" data-aos="fade-right">
+          <h2>Bem-vindo:<span>EcoDeck</span></h2>
+          <p>Nossa missão é colocar o controle de suas despesas de água e energia em suas mãos, enquanto ajudamos a construir um futuro mais sustentável. No EcoDeck, acreditamos que cada ação conta, e é por isso que oferecemos uma plataforma inteligente e amigável para monitorar e otimizar seu consumo de água e energia.</p>
+        </div>
+        <div class="apresentacao-img" data-aos="fade-left">
+          <img src="./assets/img/logo.png" alt="">
+        </div>
+      </section>
       <section class="accordion-box">
-        <div class="titulo-padrao">
+        <div class="titulo-padrao" data-aos="fade-up">
           <h2>Alertas</h2>
         </div>
-        <div class="accordion-container">
+        <div class="accordion-container" data-aos="fade-up">
           <div class="accordion-corpo">
             <button class="accordion-button">
               <span>
@@ -52,7 +62,7 @@
             </div>
           </div>
         </div>
-        <div class="accordion-container">
+        <div class="accordion-container" data-aos="fade-up">
           <div class="accordion-corpo">
             <button class="accordion-button">
               <span>
@@ -65,7 +75,7 @@
             </div>
           </div>
         </div>
-        <div class="accordion-container">
+        <div class="accordion-container" data-aos="fade-up">
           <div class="accordion-corpo">
             <button class="accordion-button">
               <span>
@@ -78,7 +88,7 @@
             </div>
           </div>
         </div>
-        <div class="accordion-container">
+        <div class="accordion-container" data-aos="fade-up">
           <div class="accordion-corpo">
             <button class="accordion-button">
               <span>
@@ -97,14 +107,13 @@
     <!-- Footer -->
 
     <footer>
-      <div class="footer-linha"></div>
-      <div class="footer-corpo">
+      <div class="footer-corpo" data-aos="fade-up">
         <div class="footer-colunas">
-          <section class="footer-logo">
+          <!-- <section class="footer-logo">
             <h2>
               <img src="./assets/img/logo.png" alt="" />
             </h2>
-          </section>
+          </section> -->
           <section>
             <h3>Consumo</h3>
             <ul class="links-hover links-before-hover">
@@ -184,6 +193,10 @@
       src="https://kit.fontawesome.com/9869816a76.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
     <script src="./assets/js/navbar.js"></script>
     <script src="./assets/js/accordion.js"></script>
     <script>

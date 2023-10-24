@@ -31,6 +31,16 @@ html {
   border: none;
 }
 
+.btn-padrao.reverse {
+  background-color: var(--btn-before-background);
+}
+
+.btn-padrao.laranja {
+  background-color: transparent;
+  border: 0.3rem solid #F1B;F27
+  box-shadow: none;
+}
+
 .btn-padrao::after {
   content: " ";
   width: 0%;
@@ -39,6 +49,14 @@ html {
   position: absolute;
   transition: all 0.4s ease-in-out;
   right: 0;
+}
+
+.btn-padrao.reverse::after {
+  background-color: var(--btn-background);
+}
+
+.btn-padrao.laranja::after {
+  background-color: var(--btn-before-background);
 }
 
 .btn-padrao:hover::after {
@@ -60,9 +78,17 @@ html {
   transition: all 0.3s ease-in-out;
 }
 
+.btn-padrao.reverse> a {
+  color: var(--font-before-padrao);
+}
+
 .btn-padrao:hover > a {
   color: var(--font-before-padrao);
   animation: scaleUp 0.3s ease-in-out;
+}
+
+.btn-padrao.reverse:hover> a {
+  color: var(--font-padrao);
 }
 
 @keyframes scaleUp {
