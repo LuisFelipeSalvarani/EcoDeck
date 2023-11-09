@@ -72,7 +72,8 @@
                     <div class="grafico conteudo">
                         <div class="titulo-tabs">Gráfico</div>
                         <div class="box-tabs">
-                            <img src="../assets/img/grafico-teste.png" alt="">
+                            <!-- Div onde o gráfico ECharts será renderizado -->
+                            <div id="echarts" style="width: auto; height: 400px;"></div>
                         </div>
                     </div>
                     <div class="mapa conteudo">
@@ -239,6 +240,12 @@
     </script>
     <script src="../assets/js/navbar.js"></script>
     <script src="../assets/js/accordion.js"></script>
+    <!-- Inclui a biblioteca ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.3.0/dist/echarts.min.js"></script>
+    <!-- Inclui a biblioteca jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Inclui o arquivo JavaScript externo para a lógica do gráfico -->
+    <script src="../js/main.js"></script>
     <script>
         document.getElementById("year").innerHTML = new Date().getFullYear();
     </script>
