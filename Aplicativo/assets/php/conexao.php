@@ -2,6 +2,7 @@
 // Inclui a biblioteca InfluxDB2 e suas dependências
 require __DIR__ . '/../vendor/autoload.php';
 
+
 // Importa as classes necessárias para o InfluxDB
 use InfluxDB2\Client;
 use InfluxDB2\Model\WritePrecision;

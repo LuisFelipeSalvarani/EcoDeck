@@ -12,14 +12,14 @@ $consultaSelecionada = $_GET['consulta'];
 
 if ($consultaSelecionada === 'consulta1') {
     // Realiza uma consulta no banco de dados InfluxDB
-    $result = $queryApi->query('from(bucket: "Teste") |> range(start: -1m) |> filter(fn: (r) => r["_measurement"] == "Teste_1") |> filter(fn: (r) => r["_field"] == "value")');
+    $result = $queryApi->query('from(bucket: "ecoDeckDB") |> range(start: 2023-01-01, stop: 2023-01-31) |> filter(fn: (r) => r["_measurement"] == "energyconsumptionDB") |> filter(fn: (r) => r["_field"] == "powerConsumption")');
 } elseif ($consultaSelecionada === 'consulta2') {
     // Realiza uma consulta no banco de dados InfluxDB
-    $result = $queryApi->query('from(bucket: "Teste") |> range(start: -25d) |> filter(fn: (r) => r["_measurement"] == "Teste_1") |> filter(fn: (r) => r["_field"] == "value") |> aggregateWindow(every: 1w, fn: sum)');
+    $result = $queryApi->query('from(bucket: "ecoDeckDB") |> range(start: 2023-01-01, stop: 2023-10-31) |> filter(fn: (r) => r["_measurement"] == "energyconsumptionDB") |> filter(fn: (r) => r["_field"] == "energyConsumption") |> aggregateWindow(every: 1mo, fn: last)');
 } else {
     // Consulta padrão ou tratamento de erro
     // Realiza uma consulta no banco de dados InfluxDB
-    $result = $queryApi->query('from(bucket: "Teste") |> range(start: -1m) |> filter(fn: (r) => r["_measurement"] == "Teste_1") |> filter(fn: (r) => r["_field"] == "value")');
+    $result = $queryApi->query('from(bucket: "ecoDeckDB") |> range(start: 2023-01-01, stop: 2023-01-31) |> filter(fn: (r) => r["_measurement"] == "energyconsumptionDB") |> filter(fn: (r) => r["_field"] == "powerConsumption")');
 }
 
 // Inicializa um array para armazenar os dados do gráfico

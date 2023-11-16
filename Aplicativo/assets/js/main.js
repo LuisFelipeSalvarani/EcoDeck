@@ -5,7 +5,8 @@ var chart = echarts.init(document.getElementById('echarts'));
 function fetchCategory(consultaSelecionada) {
     $.ajax({
         // Substitua pela URL apropriada para o seu back-end
-        url: '/projeto/php/query.php?consulta=' + consultaSelecionada,
+        url: '/EcoDeck-main/Aplicativo/assets/php/query.php?consulta=' + consultaSelecionada,
+        
         type: 'GET',
         dataType: 'json',
 
@@ -49,7 +50,7 @@ function fetchCategory(consultaSelecionada) {
 function fetchTrend(consultaSelecionada) {
     $.ajax({
         // Substitua pela URL apropriada para o seu back-end
-        url: '/projeto/php/query.php?consulta=' + consultaSelecionada,
+        url: '/EcoDeck-main/Aplicativo/assets/php/query.php?consulta=' + consultaSelecionada,
         type: 'GET',
         dataType: 'json',
 

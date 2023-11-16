@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="../assets/css/index.css">
     <link rel="stylesheet" href="../assets/css/consumo.css">
 </head>
-
 <body>
     <!-- Header -->
 
@@ -73,7 +72,16 @@
                         <div class="titulo-tabs">Gráfico</div>
                         <div class="box-tabs">
                             <!-- Div onde o gráfico ECharts será renderizado -->
-                            <div id="echarts" style="width: auto; height: 400px;"></div>
+                            <div id="echarts" style="width: 1000px; height: 400px;"></div>
+
+                            <!-- Caixa de seleção para escolher a consulta -->
+                            <label for="consulta">Selecione uma consulta:</label>
+                            <select id="consulta">
+                                <option value="consulta1">Consumo atual</option>
+                                <option value="consulta2">Consumo últimos meses</option>
+                                <!-- Adicione mais opções de consulta conforme necessário -->
+                            </select>
+                            <button onclick="atualizarGrafico()">Atualizar Gráfico</button>
                         </div>
                     </div>
                     <div class="mapa conteudo">
@@ -245,7 +253,7 @@
     <!-- Inclui a biblioteca jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Inclui o arquivo JavaScript externo para a lógica do gráfico -->
-    <script src="../js/main.js"></script>
+    <script src="../assets/js/main.js"></script>
     <script>
         document.getElementById("year").innerHTML = new Date().getFullYear();
     </script>
