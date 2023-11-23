@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EcoDeck</title>
+    <link rel="stylesheet" href="../assets/css/dashboard.css" />
+    <link rel="stylesheet" href="../assets/css/botoes.css" />
+    <link rel="stylesheet" href="../assets/css/tabela.css">
+    <link rel="stylesheet" href="../assets/css/lista.css">
+    <link rel="stylesheet" href="../assets/css/notificacao.css">
+  </head>
+  <body>
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+      <header>EcoDeck</header>
+      <nav class="sidebar-nav">
+        <ul>
+          <li>
+            <a href="#">
+              <i class="fa-regular fa-rectangle-list"></i> <span>Registros</span>
+            </a>
+            <ul class="sidebar-interna">
+              <li>
+                <a href="#"><i class="fa-solid fa-user"></i>Pessoas</a>
+              </li>
+              <li>
+                <a href="#"
+                ><i class="fa-solid fa-house-chimney"></i>Logradouro</a
+                >
+              </li>
+              <li>
+                <a href="#"><i class="fa-solid fa-road"></i>Rua</a>
+              </li>
+              <li>
+                <a href="#"><i class="fa-solid fa-tree-city"></i>Bairro</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-pen-to-square"></i> <span>Cadastro</span>
+            </a>
+            <ul class="sidebar-interna">
+              <li>
+                <a id="link" href="cadastro/pessoa.php"><i class="fa-solid fa-user"></i>Pessoas</a>
+              </li>
+              <li>
+                <a href="cadastro/logradouro.php"
+                  ><i class="fa-solid fa-house-chimney"></i>Logradouro</a
+                >
+              </li>
+              <li>
+                <a href="#"><i class="fa-solid fa-road"></i>Rua</a>
+              </li>
+              <li>
+                <a href="#"><i class="fa-solid fa-tree-city"></i>Bairro</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-chart-line"></i> <span>Gráficos</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main -->
+
+    <main id="main-content">
+        <div class="container">
+            <div class="tabela">
+
+                <!-- Cabeçalho da tabela -->
+
+                <div class="linha header">
+                    <div class="celula">ID</div>
+                    <div class="celula">Nome</div>
+                    <div class="celula">Data de Nascimento</div>
+                    <div class="celula">CPF</div>
+                    <div class="celula">RG</div>
+                    <div class="celula">E-mail</div>
+                </div>
+
+                <!-- Linhas da tabela -->
+
+                <div class="linha" id="linha">
+                    <div class="celula" data-title="ID">1</div>
+                    <div class="celula" data-title="Nome">Marta Silva</div>
+                    <div class="celula" data-title="Data de Nascimento">11/10/1980</div>
+                    <div class="celula" data-title="CPF">459.238.479-53</div>
+                    <div class="celula" data-title="RG">54.678.996-64</div>
+                    <div class="celula" data-title="E-mail">marta_silva@gmail.com</div>
+                </div>
+
+                <div class="linha" id="linha">
+                    <div class="celula" data-title="ID">2</div>
+                    <div class="celula" data-title="Nome">Nelson Pereira</div>
+                    <div class="celula" data-title="Data de Nascimento">02/07/1966</div>
+                    <div class="celula" data-title="CPF">009.288.974-30</div>
+                    <div class="celula" data-title="RG">02.781.576-10</div>
+                    <div class="celula" data-title="E-mail">nelsonpereira123@hotmail.com</div>
+                </div>
+
+                <div class="linha" id="linha">
+                    <div class="celula" data-title="ID">3</div>
+                    <div class="celula" data-title="Nome">Roberto Magalhães</div>
+                    <div class="celula" data-title="Data de Nascimento">01/03/1974</div>
+                    <div class="celula" data-title="CPF">069.458.357-75</div>
+                    <div class="celula" data-title="RG">06.547.776-01</div>
+                    <div class="celula" data-title="E-mail">magalhaes.p@yahoo.com.br</div>
+                </div>
+
+                <div class="linha" id="linha">
+                    <div class="celula" data-title="ID">4</div>
+                    <div class="celula" data-title="Nome">Gabriela Nascimento</div>
+                    <div class="celula" data-title="Data de Nascimento">23/09/2000</div>
+                    <div class="celula" data-title="CPF">429.178.813-60</div>
+                    <div class="celula" data-title="RG">54.968.455-X</div>
+                    <div class="celula" data-title="E-mail">gabi_nascimento@gmail.com</div>
+                </div>
+            </div>
+
+            <dialog>
+                <span class="fechar"><i class="fa-solid fa-circle-xmark"></i></span>
+                <div class="container">
+                    <form action="" method="post" id="cadastro">
+                      <div class="form-linha">
+                        <div class="input">
+                          <input disabled type="text" name="nome" id="nome" required />
+                          <div class="underline"></div>
+                          <label for="">Nome</label>
+                        </div>
+                        <div class="input">
+                          <input disabled type="text" name="data-nascimento" id="data-nascimento" required />
+                          <div class="underline"></div>
+                          <label for="">Data de Nascimento</label>
+                        </div>
+                      </div>
+                      <div class="form-linha">
+                        <div class="input" id="cpf-input">
+                          <input disabled type="text" name="CPF" id="CPF" required />
+                          <div class="underline"></div>
+                          <label for="">CPF</label>
+                        </div>
+                        <div class="input" id="rg-input">
+                          <input disabled type="text" name="RG" id="RG" required />
+                          <div class="underline"></div>
+                          <label for="">RG</label>
+                        </div>
+                        <div class="input">
+                          <input disabled type="email" name="email" id="email" required />
+                          <div class="underline"></div>
+                          <label for="">E-mail</label>
+                        </div>
+                      </div>
+                      <div class="form-linha">
+                        <div class="input" id="cep-input">
+                          <input disabled type="text" name="cep" id="cep" required />
+                          <div class="underline"></div>
+                          <label for="">CEP</label>
+                        </div>
+                        <div class="input">
+                          <input disabled type="text" name="logradouro" id="logradouro" required />
+                          <div class="underline"></div>
+                          <label for="">Rua</label>
+                        </div>
+                        <div class="input" id="numero-input">
+                          <input disabled type="number" name="numero" id="numero" step="1" min="0" required />
+                          <div class="underline"></div>
+                          <label for="">N°</label>
+                        </div>
+                        <div class="input" id="complemento-input">
+                          <input disabled type="text" name="complemento" id="complemento"/>
+                          <div class="underline"></div>
+                          <label for="">Complemento</label>
+                        </div>
+                      </div>
+                      <div class="form-linha">
+                        <div class="input">
+                          <input disabled type="text" name="bairro" id="bairro" required />
+                          <div class="underline"></div>
+                          <label for="">Bairro</label>
+                        </div>
+                        <div class="input" id="cidade-input">
+                          <input disabled type="text" name="cidade" id="cidade" required />
+                          <div class="underline"></div>
+                          <label for="">Cidade</label>
+                        </div>
+                        <div class="input" id="estado-input">
+                          <input disabled type="text" name="Estado" id="Estado" required />
+                          <div class="underline"></div>
+                          <label for="">Estado</label>
+                        </div>
+                      </div>
+                    </form>
+                    <div class="botoes">
+                        <button class="btn-padrao" type="submit" form="cadastro"><span>Salvar</span></button>
+                        <button class="btn-padrao" id="alterar"><span>Alterar</span></button>
+                    </div>
+                  </div>
+            </dialog>
+        </div>
+    </main>
+    <dialog open>
+      <div class="pesquisa-container">
+
+        <!-- Campo de pesquisa -->
+
+        <div class="input-pesquisa">
+          <div class="pesquisa">
+            <input type="text" placeholder="Pesquisa" name="pesquisa" id="pesquisa">
+            <div class="icone-pesquisa">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lista -->
+
+        <ul class="lista">
+          <li>Rua Vitor Meirelles</li>
+          <li>Rua Francisco Glicerio</li>
+          <li>Avenida dos Italianos</li>
+          <li>Avenida Getulio Vargas</li>
+        </ul>
+
+      </div>
+    </dialog>
+
+
+    <!-- Links JavaScript -->
+
+    <script
+      src="https://kit.fontawesome.com/9869816a76.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../assets/js/fill.js"></script>
+    <script src="../assets/js/carregar-conteudo.js"></script>
+    <script src="../assets/js/modal.js"></script>
+    <script src="../assets/js/alterar.js"></script>
+  </body>
+</html>
