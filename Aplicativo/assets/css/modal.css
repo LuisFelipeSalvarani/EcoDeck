@@ -47,33 +47,84 @@ dialog .container {
     padding: 2.5rem 4rem 1rem 4rem;
 }
 
+/* Formulario */
+
 dialog .container form {
     width: 100%;
+    padding: 1.5rem 0;
 }
 
 dialog .container form .form-linha {
     display: flex;
-    margin: 3.2rem 0;
+    margin: 1.5rem 0;
 }
 
 form .form-linha .input {
     width: 100%;
-    height: 4rem;
-    margin: 0 2rem;
-    position: relative;
+    margin: 0 1rem;
 }
 
 /* Input */
 
-.input input {
+.input label {
     display: block;
+    font-weight: 500;
+    margin: 0.5rem;
+    font-size: 1.4rem;
+}
+
+.input input {
     width: 100%;
-    height: 100%;
-    border: none;
+    height: 5rem;
+    padding: 1.2rem;
+    font-size: 1.6rem;
+    border: 2px solid #d1d3d4;
+    border-radius: 6px;
+    color: #212121;
+    background-color: transparent;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+.input input:focus {
     outline: none;
+    border-color: #48CAE4;
+}
+
+.input input:disabled {
+    cursor: not-allowed;
+    background-color: #f2f2f2;
+    box-shadow: none;
+    opacity: 0.6;
+}
+
+.input.botao {
+    position: relative;
+}
+
+.input .pesquisa-botao {
+    width:3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    right: 1rem;
     background: transparent;
-    font-size: 1.7rem;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.12);
+    border: none;
+    font-size: 1.6rem;
+    color: #212121;
+    opacity: 0.6;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.input .pesquisa-botao:hover {
+    opacity: 1;
+}
+
+#nome-input {
+    width: 80%;
 }
 
 #cpf-input,
@@ -81,104 +132,26 @@ form .form-linha .input {
     width: 60%;
 }
 
-#cidade-input,
-#complemento-input {
+#data_nascimento-input,
+#telefone-input {
     width: 50%;
 }
 
-#cep-input {
+#cidade-input,
+#cep-input,
+#titulo-input,
+#logradouro-input,
+#via-input {
     width: 30%;
 }
 
-#numero-input,
+#numero-input {
+    width: 25%;
+}
+
+#grupo-input,
 #estado-input {
-    width: 20%;
-}
-
-/* Label */
-
-.input input:focus ~ label,
-.input.preenchido input:valid ~ label  {
-    font-size: 1.4rem;
-    color: #3498db;
-    transform: translateY(-20px);
-    -webkit-transform: translateY(-20px);
-    -moz-transform: translateY(-20px);
-    -ms-transform: translateY(-20px);
-    -o-transform: translateY(-20px);
-}
-
-.input.preenchido input:invalid ~ label  {
-    font-size: 1.4rem;
-    color: #ff0000;
-    transform: translateY(-20px);
-    -webkit-transform: translateY(-20px);
-    -moz-transform: translateY(-20px);
-    -ms-transform: translateY(-20px);
-    -o-transform: translateY(-20px);
-}
-
-.input label {
-    position: absolute;
-    pointer-events: none;
-    bottom: 1rem;
-    font-size: 1.6rem;
-    text-transform: capitalize;
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    -ms-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-}
-
-/* Underline */
-
-.input .underline {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 0.2rem;
-}
-
-.input .underline::before {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 0.2rem;
-    background: #3498db;
-    -webkit-transform: scaleX(0);
-    -moz-transform: scaleX(0);
-    -ms-transform: scaleX(0);
-    -o-transform: scaleX(0);
-    transform: scaleX(0);
-    -webkit-transform-origin: center;
-    -moz-transform-origin: center;
-    -ms-transform-origin: center;
-    -o-transform-origin: center;
-    transform-origin: center;
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    -ms-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-}
-
-.input input:focus ~ .underline::before,
-.input.preenchido input:valid ~ .underline::before {
-    -webkit-transform: scaleX(1);
-    -moz-transform: scaleX(1);
-    -ms-transform: scaleX(1);
-    -o-transform: scaleX(1);
-    transform: scaleX(1);
-}
-
-.input.preenchido input:invalid ~ .underline::before {
-    background: #ff0000;
-    -webkit-transform: scaleX(1);
-    -moz-transform: scaleX(1);
-    -ms-transform: scaleX(1);
-    -o-transform: scaleX(1);
-    transform: scaleX(1);
+    width: 10%;
 }
 
 dialog button:focus {

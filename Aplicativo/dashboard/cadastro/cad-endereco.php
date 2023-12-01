@@ -4,42 +4,45 @@
 <div class="container">
   <div class="text">
     <h2>Cadastro</h2>
-    <h3>Rua</h3>
+    <h3>Endereço</h3>
   </div>
   <form method="post" id="cadastro">
     <div class="form-linha">
       <div class="input" id="grupo-input">
-        <input type="text" name="grupo" id="grupo" required />
-        <div class="underline"></div>
         <label for="">Grupo</label>
+        <input type="text" name="grupo" id="grupo" value="" placeholder="00" required />
       </div>
-      <div class="input" id="cep-input">
-        <input type="text" name="cep" id="cep" required />
-        <div class="underline"></div>
-        <label for="">CEP</label>
+      <div class="input" id="via-input">
+        <label for="">Via</label>
+        <input type="text" name="via" id="via" placeholder="Rua" required />
+      </div>
+      <div class="input" id="titulo-input">
+        <label for="">Titulo</label>
+        <input type="text" name="titulo" id="titulo" placeholder="Titulo" />
       </div>
       <div class="input">
-        <input type="text" name="rua" id="rua" required />
-        <div class="underline"></div>
-        <label for="">Rua</label>
+        <label for="">Endereço</label>
+        <input type="text" name="endereco" id="endereco" placeholder="Endereço" required />
       </div>
     </div>
     <div class="form-linha">
-      <input type="hidden" name="bairro_id" id="bairro_id" value="">
-      <div class="input">
-        <input type="text" name="bairro" id="bairro" required />
-        <div class="underline"></div>
+      <input type="hidden" name="bairro_id" id="bairro_id">
+      <div class="input" id="cep-input">
+        <label for="">CEP</label>
+        <input type="text" name="cep" id="cep" value="" placeholder="00000-000" required />
+      </div>
+      <div class="input botao">
         <label for="">Bairro</label>
+        <input type="text" name="bairro" id="bairro" placeholder="Bairro" required />
+        <div class="pesquisa-botao" id="botao-pesquisa"><i class="fa-solid fa-magnifying-glass"></i></div>
       </div>
       <div class="input" id="cidade-input">
-        <input type="text" name="cidade" id="cidade" required />
-        <div class="underline"></div>
         <label for="">Cidade</label>
+        <input type="text" name="cidade" id="cidade" placeholder="Cidade" required />
       </div>
       <div class="input" id="estado-input">
-        <input type="text" name="estado" id="estado" required />
-        <div class="underline"></div>
         <label for="">Estado</label>
+        <input type="text" name="estado" id="estado" placeholder="UF" required />
       </div>
     </div>
   </form>
@@ -108,12 +111,6 @@
 
             // Resetar os campos após o envio bem-sucedido
             formulario.reset();
-
-            // Remover a classe "preenchido" das divs com a classe "input"
-            var divsInput = document.querySelectorAll('.input');
-            divsInput.forEach(function (div) {
-              div.classList.remove('preenchido');
-            });
           } else {
             exibirMensagem("erro");
           }
@@ -123,7 +120,7 @@
       }
     };
 
-    xhttp.open("POST", "./gravar/rua-gravar.php", true);
+    xhttp.open("POST", "./gravar/endereco-gravar.php", true);
     xhttp.send(dadosFormulario);
   }
 

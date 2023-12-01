@@ -28,7 +28,7 @@
               <a href="./dashboard.php?pagina=registros/reg-logradouro.php"><i class="fa-solid fa-house-chimney"></i>Logradouro</a>
             </li>
             <li>
-              <a href="./dashboard.php?pagina=registros/reg-rua.php"><i class="fa-solid fa-road"></i>Rua</a>
+              <a href="./dashboard.php?pagina=registros/reg-endereco.php"><i class="fa-solid fa-road"></i>Endereço</a>
             </li>
             <li>
               <a href="./dashboard.php?pagina=registros/reg-bairro.php"><i class="fa-solid fa-tree-city"></i>Bairro</a>
@@ -47,7 +47,7 @@
               <a href="./dashboard.php?pagina=cadastro/cad-logradouro.php"><i class="fa-solid fa-house-chimney"></i>Logradouro</a>
             </li>
             <li>
-              <a href="./dashboard.php?pagina=cadastro/cad-rua.php"><i class="fa-solid fa-road"></i>Rua</a>
+              <a href="./dashboard.php?pagina=cadastro/cad-endereco.php"><i class="fa-solid fa-road"></i>Endereço</a>
             </li>
             <li>
               <a href="./dashboard.php?pagina=cadastro/cad-bairro.php"><i class="fa-solid fa-tree-city"></i>Bairro</a>

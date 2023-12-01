@@ -8,24 +8,20 @@
   <form method="post" id="cadastro">
     <div class="form-linha">
       <div class="input" id="grupo-input">
-        <input type="text" name="grupo" id="grupo" required />
-        <div class="underline"></div>
-        <label for="">Grupo</label>
+        <label for="grupo">Grupo</label>
+        <input type="text" name="grupo" id="grupo" placeholder="00" required/>
       </div>
       <div class="input">
-        <input type="text" name="bairro" id="bairro" required />
-        <div class="underline"></div>
-        <label for="">Bairro</label>
+        <label for="bairro">Bairro</label>
+        <input type="text" name="bairro" id="bairro" placeholder="Bairro" required />
       </div>
       <div class="input" id="cidade-input">
-        <input type="text" name="cidade" id="cidade" required />
-        <div class="underline"></div>
-        <label for="">Cidade</label>
+        <label for="cidade">Cidade</label>
+        <input type="text" name="cidade" id="cidade" placeholder="Cidade" required />
       </div>
       <div class="input" id="estado-input">
-        <input type="text" name="estado" id="estado" required />
-        <div class="underline"></div>
-        <label for="">Estado</label>
+        <label for="estado">Estado</label>
+        <input type="text" name="estado" id="estado" placeholder="UF" required />
       </div>
     </div>
   </form>

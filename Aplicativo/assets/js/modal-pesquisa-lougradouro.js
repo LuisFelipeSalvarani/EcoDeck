@@ -1,5 +1,5 @@
 const abrirModal = document.querySelectorAll("#botao-pesquisa");
-const modal = document.querySelector("dialog.modal");
+let modal = document.querySelector("dialog.modal");
 const fecharModal = document.querySelector("dialog .fechar");
 const listaDoModal = document.getElementById("listaDoModal");
 const formulario = document.getElementById("cadastro");
@@ -19,18 +19,18 @@ listaDoModal.addEventListener("click", function (event) {
   // Verifique se o clique foi em um elemento <li>
   if (event.target.tagName === "LI") {
     // Obtenha o texto do item clicado
-    const bairroSelecionado = event.target.textContent;
+    const enderecoSelecionado = event.target.textContent;
 
     // Encontre o objeto correspondente no JSON
-    const bairroEncontrado = dados.find(item => item.bairro === bairroSelecionado);
+    const enderecoEncontrado = dados.find(item => item.endereco === enderecoSelecionado);
 
     // Se encontrar o bairro, preencha o formulário
-    if (bairroEncontrado) {
-      preencherFormulario(bairroEncontrado);
+    if (enderecoEncontrado) {
+      preencherFormulario(enderecoEncontrado);
       // Feche o modal após preencher o formulário
       modal.close();
     } else {
-      alert("Bairro não encontrado no JSON!"); // Ou qualquer outra ação desejada
+      alert("Endereço não encontrado"); // Ou qualquer outra ação desejada
     }
   }
 });
@@ -56,7 +56,7 @@ function carregarDadosDoPHP() {
   };
   
   // Substitua 'seu_script_php.php' pelo caminho do seu script PHP
-  xhr.open("GET", "./../dashboard/listar/listar-bairro-modal.php", true);
+  xhr.open("GET", "./../dashboard/listar/listar-endereco-modal.php", true);
   xhr.send();
 }
 
@@ -67,19 +67,23 @@ function popularLista(dados) {
   // Adicione os itens à lista
   dados.forEach(function (item) {
     const li = document.createElement("li");
-    li.textContent = item.bairro;
+    li.textContent = item.endereco;
     listaDoModal.appendChild(li);
   });
 }
 
-function preencherFormulario(bairroEncontrado) {
+function preencherFormulario(enderecoEncontrado) {
   // Aqui você deve implementar a lógica para preencher o formulário
   // com base nos dados do bairro encontrado no JSON
   // Exemplo: Suponha que você tenha campos de input com os IDs "bairroInput" e "outrasInformacoesInput"
-  document.querySelector(".input #bairro").value = bairroEncontrado.bairro;
-  document.getElementById("grupo").value = bairroEncontrado.grupo;
-  document.getElementById("cidade").value = bairroEncontrado.cidade;
-  document.getElementById("estado").value = bairroEncontrado.estado;
-  document.getElementById("bairro_id").value = bairroEncontrado.bairro_id;
+  document.getElementById("via").value = enderecoEncontrado.via;
+  document.getElementById("titulo").value = enderecoEncontrado.titulo;
+  document.getElementById("endereco").value = enderecoEncontrado.endereco;
+  document.getElementById("cep").value = enderecoEncontrado.cep;
+  document.getElementById("grupo").value = enderecoEncontrado.grupo;
+  document.getElementById("bairro").value = enderecoEncontrado.bairro;
+  document.getElementById("cidade").value = enderecoEncontrado.cidade;
+  document.getElementById("estado").value = enderecoEncontrado.estado;
+  document.getElementById("endereco_id").value = enderecoEncontrado.endereco_id;
   // ... adicione mais campos conforme necessário
 }
