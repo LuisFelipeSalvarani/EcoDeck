@@ -1,5 +1,7 @@
 <link rel="stylesheet" href="../assets/css/cadastro.css" />
 <link rel="stylesheet" href="../assets/css/notificacao.css" />
+<link rel="stylesheet" href="../assets/css/lista.css">
+
 <div method="POSt" class="container">
   <div class="text">
     <h2>Cadastro</h2>
@@ -8,80 +10,106 @@
   <form method="POST" id="cadastro">
     <div class="form-linha">
       <div class="input" id="nome-input">
-        <input type="text" name="nome" id="nome" required />
-        <div class="underline"></div>
         <label for="">Nome</label>
+        <input type="text" name="nome" id="nome" placeholder="Nome Completo" required />
       </div>
       <div class="input" id="data_nascimento-input">
-        <input type="text" name="data_nascimento" id="data_nascimento" required />
-        <div class="underline"></div>
         <label for="">Data de Nascimento</label>
+        <input type="text" name="data_nascimento" id="data_nascimento" placeholder="00/00/0000" required />
       </div>
       <div class="input" id="telefone-input">
-        <input type="text" name="telefone" id="telefone" required />
-        <div class="underline"></div>
         <label for="">Telefone:</label>
+        <input type="text" name="telefone" id="telefone" placeholder="(00)00000-0000" required />
       </div>
     </div>
     <div class="form-linha">
       <div class="input" id="cpf-input">
-        <input type="text" name="cpf" id="cpf" required />
-        <div class="underline"></div>
         <label for="">CPF</label>
+        <input type="text" name="cpf" id="cpf" placeholder="000.000.000-00" required />
       </div>
       <div class="input" id="rg-input">
-        <input type="text" name="rg" id="rg" required />
-        <div class="underline"></div>
         <label for="">RG</label>
+        <input type="text" name="rg" id="rg" placeholder="00.000.000-0" required />
       </div>
       <div class="input">
-        <input type="email" name="email" id="email" required />
-        <div class="underline"></div>
         <label for="">E-mail</label>
+        <input type="email" name="email" id="email"  placeholder="email@host.com"/>
+      </div>
+    </div>
+    <div class="form-linha">
+      <div class="input" id="via-input">
+        <label for="">Via</label>
+        <input type="text" name="via" id="via" placeholder="Rua" required />
+      </div>
+      <div class="input" id="titulo-input">
+        <label for="">Titulo</label>
+        <input type="text" name="titulo" id="titulo" placeholder="Titulo"/>
+      </div>
+      <input type="hidden" name="logradouro_id" id="logradouro_id">
+      <div class="input botao">
+        <label for="">Endereço</label>
+        <input type="text" name="endereco" id="endereco" placeholder="Endereço" required />
+        <div class="pesquisa-botao" id="botao-pesquisa"><i class="fa-solid fa-magnifying-glass"></i></div>
+      </div>
+      <div class="input" id="numero-input">
+        <label for="">N°</label>
+        <input type="number" name="numero" id="numero" step="1" min="0" placeholder="000" required />
       </div>
     </div>
     <div class="form-linha">
       <div class="input" id="cep-input">
-        <input type="text" name="cep" id="cep" required />
-        <div class="underline"></div>
         <label for="">CEP</label>
-      </div>
-      <div class="input">
-        <input type="text" name="logradouro_id" id="logradouro" required />
-        <div class="underline"></div>
-        <label for="">Rua</label>
-      </div>
-      <div class="input" id="numero-input">
-        <input type="number" name="numero" id="numero" step="1" min="0" required />
-        <div class="underline"></div>
-        <label for="">N°</label>
+        <input type="text" name="cep" id="cep" placeholder="00000-000" required />
       </div>
       <div class="input" id="complemento-input">
-        <input type="text" name="complemento" id="complemento" />
-        <div class="underline"></div>
         <label for="">Complemento</label>
+        <input type="text" name="complemento" id="complemento" placeholder="Complemento"/>
       </div>
     </div>
     <div class="form-linha">
       <div class="input">
-        <input type="text" name="bairro" id="bairro" required />
-        <div class="underline"></div>
         <label for="">Bairro</label>
+        <input type="text" name="bairro" id="bairro" placeholder="Bairro" required />
       </div>
       <div class="input" id="cidade-input">
-        <input type="text" name="cidade" id="cidade" required />
-        <div class="underline"></div>
         <label for="">Cidade</label>
+        <input type="text" name="cidade" id="cidade" placeholder="Cidade" required />
       </div>
       <div class="input" id="estado-input">
-        <input type="text" name="Estado" id="Estado" required />
-        <div class="underline"></div>
         <label for="">Estado</label>
+        <input type="text" name="estado" id="estado" placeholder="UF" required />
       </div>
     </div>
   </form>
   <button class="btn-padrao" onclick="realizarCadastro()"><span>Cadastrar</span></button>
 </div>
+
+<!-- Modal Pesquisa -->
+
+<dialog class="modal">
+  <div class="pesquisa-container">
+
+    <!-- Campo de pesquisa -->
+
+    <div class="input-pesquisa">
+      <div class="pesquisa">
+        <input type="text" placeholder="Pesquisa" name="pesquisa" id="pesquisa">
+        <div class="icone-pesquisa">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lista -->
+
+    <ul class="lista" id="listaDoModal">
+    </ul>
+
+  </div>
+</dialog>
+
+<!-- Notificações -->
+
 <div class="notificacao sucesso" id="sucesso">
   <div class="notificacao-corpo">
     <i class="fa-regular fa-circle-check notificacao-icone"></i>
@@ -96,6 +124,8 @@
   </div>
   <div class="notificacao-progresso"></div>
 </div>
+
+<!-- JavaScript -->
 
 <script>
   function realizarCadastro() {
@@ -178,3 +208,5 @@
     return regex.test(email);
   }
 </script>
+
+<script src="../assets/js/modal-pesquisa-pessoa.js"></script>

@@ -1,4 +1,4 @@
-dialog{
+dialog.modal{
     width: 45rem;
     height: 50%;
     top: 50%;
@@ -9,11 +9,11 @@ dialog{
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-dialog::backdrop {
+dialog.modal::backdrop {
     background: rgba(0, 0, 0, 0.3);
 }
 
-dialog .pesquisa-container {
+dialog.modal .pesquisa-container {
     width: 100%;
     height: 100%;
     padding: 1rem;

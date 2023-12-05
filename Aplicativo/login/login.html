@@ -11,43 +11,69 @@
     <main>
       <div class="container" id="container">
         <div class="form-container cadastrar-container">
-          <form action="" method="post">
+          <form method="post">
             <h1>Primero Acesso</h1>
             <div class="form-grupo">
-                <input class="form-input" type="text" name="CPF-cadastro" id="CPF-cadastro" placeholder="CPF" required />
-                <label for="CPF-cadastro" class="form-label">CPF</label>
+              <input
+                class="form-input"
+                type="text"
+                name="cpf-cadastro"
+                id="cpf-cadastro"
+                placeholder="CPF"
+                required
+              />
+              <label for="cpf-cadastro" class="form-label">CPF</label>
             </div>
             <div class="form-grupo">
-                <input class="form-input" type="email" name="email-cadastro" id="email-cadastro" placeholder="Email" required />
-                <label for="email-cadastro" class="form-label">E-mail</label>
+              <input
+                class="form-input"
+                type="email"
+                name="email-cadastro"
+                id="email-cadastro"
+                placeholder="Email"
+                required
+              />
+              <label for="email-cadastro" class="form-label">E-mail</label>
             </div>
-            <!-- <div class="form-grupo">
-                <input class="form-input" type="password" name="senha-cadastro" id="senha-cadastro" placeholder="Senha" required />
-                <label for="senha-cadastro" class="form-label">Senha</label>
-            </div> -->
-            <button class="btn-padrao reverse"><a href="">Cadastrar-se</a></button>
+            <button class="btn-padrao reverse">
+              <a href="">Cadastrar-se</a>
+            </button>
           </form>
         </div>
         <div class="form-container login-container">
-          <form action="" method="post">
+          <form action="" method="post" id="form-login">
             <h1>Login</h1>
             <div class="form-grupo">
-                <input class="form-input" type="text" name="CPF" id="CPF" placeholder="CPF" required />
-                <label for="CPF" class="form-label">CPF</label>
+              <input
+                class="form-input"
+                type="text"
+                name="cpf"
+                id="cpf"
+                placeholder="CPF"
+                required
+              />
+              <label for="cpf" class="form-label">CPF</label>
             </div>
             <div class="form-grupo">
-                <input class="form-input" type="password" name="senha" id="senha" placeholder="Senha" required />
-                <label for="senha" class="form-label">Senha</label>
+              <input
+                class="form-input"
+                type="password"
+                name="senha"
+                id="senha"
+                placeholder="Senha"
+                required
+              />
+              <label for="senha" class="form-label">Senha</label>
             </div>
             <a href="#" class="small">Esqueceu sua senha?</a>
-            <button class="btn-padrao reverse"><a href="">Entrar</a></button>
+            <span class="btn-padrao reverse" onclick="login()"><a>Entrar</a></span>
           </form>
         </div>
         <div class="sobreposicao-container">
           <div class="sobreposicao">
             <div class="sobreposicao-painel sobreposicao-esquerda">
               <h1>Novo por aqui?</h1>
-              <p>Preencha com suas informações para criar uma conta.</p>
+              <p>Preencha com suas informações para o primeiro acesso.</p>
               <button class="btn-padrao" id="cadastrar">
                 <a href="">Cadastrar-se</a>
               </button>
@@ -63,7 +89,60 @@
         </div>
       </div>
     </main>
-    
+
     <script src="../assets/js/login.js"></script>
+
+    <script>
+      function login() {
+        var formulario = document.getElementById("form-login");
+
+        // Adicionando a validação dos campos
+        if (!validaCampos("form-login")) {
+          return; // Impede a execução do restante do código se a validação falhar
+        }
+
+        var dadosFormulario = new FormData(formulario);
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4) {
+            if (this.status == 200) {
+              var resposta = this.responseText.trim();
+              if (resposta === "sucesso") {
+
+                 // Redireciona o usuario
+                 window.location.href = "../index.html";
+
+              } else {
+                alert("erro senha");
+              }
+            } else {
+              alert("erro");
+            }
+          }
+        };
+
+        xhttp.open("POST", "./usuario-login.php", true);
+        xhttp.send(dadosFormulario);
+      }
+
+      // Função de validação genérica
+      function validaCampos(formName) {
+        var form = document.forms[formName];
+        var camposValidos = true; // Assume que todos os campos são válidos inicialmente
+
+        for (var i = 0; i < form.elements.length; i++) {
+          var element = form.elements[i];
+
+          // Verifica se o campo é obrigatório e se está vazio
+          if (element.hasAttribute("required") && element.value.trim() === "") {
+            alert("O campo " + element.name + " é obrigatório!");
+            camposValidos = false; // Define como falso se encontrar um campo inválido
+          }
+        }
+
+        return camposValidos;
+      }
+    </script>
   </body>
 </html>

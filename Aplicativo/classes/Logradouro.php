@@ -1,20 +1,23 @@
 <?php
 
-class Bairro
+class Logradouro
 {
-    public $bairro_id;
-    public $grupo;
-    public $bairro;
-    public $cidade;
-    public $estado;
+    public $logradouro_id;
+    public $endereco_id;
+    public $numero;
+    public $complemento;
+    public $inscricao;
+    public $matricula;
+    public $lig_agua;
+    public $lig_energia;
 
     // Define um método construtor na classe com parâmetro opcional
-    public function __construct($bairro_id = false)
+    public function __construct($logradouro_id = false)
     {
         // Verifica se a variável $id foi definida
-        if ($bairro_id) {
+        if ($logradouro_id) {
             // Atribui o valor de $id à propriedade $id do objeto
-            $this->bairro_id = $bairro_id;
+            $this->logradouro_id = $logradouro_id;
             // carrega as informações correspondentes ao $id do objeto
             $this->carregar();
         }
@@ -27,21 +30,27 @@ class Bairro
             include_once "Conexao.php";
 
             // Define a string SQL de inserção de dados na tabela
-            $sql = "INSERT INTO tb_bairro (bairro, grupo, cidade, estado) VALUES (
-            :bairro,
-            :grupo,
-            :cidade,
-            :estado
+            $sql = "INSERT INTO tb_logradouro (numero, endereco_id, complemento, inscricao, matricula, lig_agua, lig_energia) VALUES (
+            :numero,
+            :endereco_id,
+            :complemento,
+            :inscricao,
+            :matricula,
+            :lig_agua,
+            :lig_energia
         )";
 
             // Prepara a consulta SQL
             $stmt = $conn->prepare($sql);
 
             // Binde os parâmetros da consulta
-            $stmt->bindParam(':bairro', $this->bairro);
-            $stmt->bindParam(':grupo', $this->grupo);
-            $stmt->bindParam(':cidade', $this->cidade);
-            $stmt->bindParam(':estado', $this->estado);
+            $stmt->bindParam(':numero', $this->numero);
+            $stmt->bindParam(':endereco_id', $this->endereco_id);
+            $stmt->bindParam(':complemento', $this->complemento);
+            $stmt->bindParam(':inscricao', $this->inscricao);
+            $stmt->bindParam(':matricula', $this->matricula);
+            $stmt->bindParam(':lig_agua', $this->lig_agua);
+            $stmt->bindParam(':lig_energia', $this->lig_energia);
 
             // Executa a consulta SQL
             $stmt->execute();
@@ -49,7 +58,7 @@ class Bairro
             return "sucesso";
         } catch (PDOException $e) {
             // Retorna um array indicando erro
-            return "erro";
+            return "erro" . $e;
         }
     }
 
@@ -57,7 +66,7 @@ class Bairro
     {
         try {
             // Define a string SQL para selecionar todos os registros da tabela
-            $sql = "SELECT * FROM tb_bairro";
+            $sql = "SELECT * FROM tb_logradouro l JOIN tb_endereco e ON l.endereco_id = e.endereco_id JOIN tb_bairro b ON e.bairro_id = b.bairro_id ORDER BY l.logradouro_id";
 
             // Cria uma nova conexão PDO com o banco de dados "sis-escolar"
             include_once "Conexao.php";
@@ -83,7 +92,7 @@ class Bairro
     {
         // Define a string de consulta SQL para deletar um registro
         // da tabela "tb_turmas" com base ni seu ID
-        $sql = "DELETE FROM tb_bairro WHERE id=" . $this->bairro_id;
+        $sql = "DELETE FROM tb_logradouro WHERE id=" . $this->logradouro_id;
 
         // Cria uma nova conexão PDO com o banco de dados localizado
         // no servidor "127.0.0.1" e autentica com o usuário "root" (sem senha)
@@ -99,19 +108,22 @@ class Bairro
         try {
             include_once "Conexao.php";
 
-            $sql = "SELECT * FROM tb_bairro WHERE bairro_id = :bairro_id";
+            $sql = "SELECT * FROM tb_logradouro WHERE logradouro_id = :logradouro_id";
 
             $stmt = $conn->prepare($sql);
-            $stmt->bindParam(':bairro_id', $this->bairro_id);
+            $stmt->bindParam(':logradouro_id', $this->logradouro_id);
             $stmt->execute();
 
             $linha = $stmt->fetch();
 
             // Atribuição dos valores dos campos recuperados do banco
-            $this->grupo = $linha['grupo'];
-            $this->bairro = $linha['bairro'];
-            $this->cidade = $linha['cidade'];
-            $this->estado = $linha['estado'];
+            $this->endereco_id = $linha['endereco_id'];
+            $this->numero = $linha['numero'];
+            $this->complemento = $linha['complemento'];
+            $this->inscricao = $linha['inscricao'];
+            $this->matricula = $linha['matricula'];
+            $this->lig_agua = $linha['lig_agua'];
+            $this->lig_energia = $linha['lig_energia'];
 
         } catch (PDOException $e) {
             // Tratar exceções do PDO (por exemplo, exibir uma mensagem de erro)
@@ -125,22 +137,28 @@ class Bairro
             $conn = new PDO('mysql:host=127.0.0.1;dbname=test','root','');
 
             // Consulta SQL preparada
-            $sql = "UPDATE tb_bairro SET
-                    grupo = :grupo,
-                    bairro = :bairro,
-                    cidade = :cidade,
-                    estado = :estado
-                WHERE bairro_id = :bairro_id";
+            $sql = "UPDATE tb_logradouro SET
+                    endereco_id = :endereco_id,
+                    numero = :numero,
+                    complemento = :complemento,
+                    inscricao = :inscricao,
+                    matricula = :matricula,
+                    lig_agua = :lig_agua,
+                    lig_energia = :lig_energia
+                WHERE logradouro_id = :logradouro_id";
 
             // Preparação da consulta
             $stmt = $conn->prepare($sql);
 
             // Vinculação dos parâmetros
-            $stmt->bindParam(':grupo', $this->grupo);
-            $stmt->bindParam(':bairro', $this->bairro);
-            $stmt->bindParam(':cidade', $this->cidade);
-            $stmt->bindParam(':estado', $this->estado);
-            $stmt->bindParam(':bairro_id', $this->bairro_id);
+            $stmt->bindParam(':endereco_id', $this->endereco_id);
+            $stmt->bindParam(':numero', $this->numero);
+            $stmt->bindParam(':complemento', $this->complemento);
+            $stmt->bindParam(':inscricao', $this->inscricao);
+            $stmt->bindParam(':matricula', $this->matricula);
+            $stmt->bindParam(':lig_agua', $this->lig_agua);
+            $stmt->bindParam(':lig_energia', $this->lig_energia);
+            $stmt->bindParam(':logradouro_id', $this->logradouro_id);
 
             // Execução da consulta
             $stmt->execute();
