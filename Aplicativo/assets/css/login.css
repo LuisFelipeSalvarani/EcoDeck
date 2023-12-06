@@ -133,6 +133,22 @@ form > button {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
+.container.codigo {
+  width: 38.4rem;
+  min-height: 32rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container.codigo p {
+  margin-bottom: 0;
+}
+
+.container.codigo button {
+  margin-top: 1rem;
+}
+
 .form-container {
   height: 100%;
   position: absolute;
