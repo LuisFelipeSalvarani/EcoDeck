@@ -24,13 +24,18 @@
         <ul class="menu-links links-hover links-before-hover" id="menu-links">
           <li><a href="">Home</a></li>
           <li><a href="">Alertas</a></li>
-          <li><a href="">Água</a></li>
-          <li><a href="">Energia</a></li>
+          <li><a href="">Consumo</a></li>
         </ul>
       </nav>
-      <button class="login btn-padrao">
-        <a href="#" class="icone">ENTRAR</a>
-      </button>
+      <div class="user-button login" id="user-button">
+        <i class="fa-regular fa-circle-user"></i>
+    </div>
+    <div class="menu-user menu-user-before" id="menu-user">
+        <ul>
+            <li><a href="">Meu consumo</a></li>
+            <li><a href="">Sair</a></li>
+        </ul>
+    </div>
     </header>
 
     <!-- Main -->
@@ -235,6 +240,7 @@
     </script>
     <script src="./assets/js/navbar.js"></script>
     <script src="./assets/js/accordion.js"></script>
+    <script src="./assets/js/menu-user-open.js"></script>
     <script>
       document.getElementById("year").innerHTML = new Date().getFullYear();
     </script>
