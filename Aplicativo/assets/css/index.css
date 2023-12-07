@@ -55,6 +55,99 @@ header {
   width: 10rem;
 }
 
+.user-button i {
+  font-size: 4rem;
+  color: #212121;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.user-button i:hover,
+.user-button i:focus {
+  color: #48CAE4;
+}
+
+.menu-user {
+  width: 15rem;
+  height: 0;
+  position: absolute;
+  top: 10rem;
+  right: 0;
+  border-radius: 0 0 0 2rem;
+  background-color: #f1faee;
+  box-shadow: -2px 6px 20px 2px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: all 0.8s ease-in;
+}
+
+.menu-user.open {
+  height: 10rem;
+}
+
+.menu-user ul {
+  width: 100%;
+  height: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.menu-user ul li {
+  font-size: 1.6rem;
+  font-weight: bold;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.menu-user ul li:nth-child(1) {
+  transition: all 0.3s ease 0.2s;
+}
+
+.menu-user ul li:nth-child(2) {
+  transition: all 0.3s ease 0.4s;
+}
+
+.menu-user ul li.fade {
+  visibility: visible;
+  opacity: 1;
+}
+
+.menu-user ul li a {
+  position: relative;
+  color: #212121;
+  text-decoration: none;
+  padding-bottom: 0.4rem;
+}
+
+.menu-user ul li a::before {
+  content: "";
+  width: 100%;
+  height: 0.3rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #fff;
+  transition: 0.5s transform ease;
+  transform: scale3d(0, 1, 1);
+  transform-origin: 0 50%;
+}
+
+.menu-user ul li a:hover::before {
+  transform: scale3d(1, 1, 1);
+}
+
+.menu-user-before ul li a::before {
+  background: #f27f1b;
+  transform-origin: 100% 50%;
+}
+
+.menu-user-before ul li a:hover::before {
+  transform-origin: 0 50%;
+}
+
 header nav {
   height: 100%;
   background-color: var(--background-claro);
@@ -341,6 +434,7 @@ main {
   font-size: clamp(2.4rem, 2vw, 3.2rem);
   font-weight: bolder;
   color: var(--font-padrao);
+  text-align: center;
 }
 
 .titulo-padrao h2 {
@@ -357,9 +451,11 @@ main {
   background: #f27f1b;
 }
 
+/* Seção dos Alertas */
+
 .accordion-box {
   width: 100%;
-  height: 100%;
+  min-height: min-content;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -453,6 +549,92 @@ main {
   line-height: 3rem;
   overflow: hidden;
   transition: all 1s;
+}
+
+/* Seção dos Gráficos */
+
+.grafico-box {
+  width: 100%;
+  height: min-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 3rem 5rem;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur( 5px );
+  -webkit-backdrop-filter: blur( 5px );
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.grafico-box.consumidor {
+  height: min-content;
+  gap: 1rem;
+  padding-top: 0;
+}
+
+.grafico-container {
+  width: 80%;
+  min-width: 10rem;
+  max-width: 100rem;
+  height: 55rem;
+  padding: 4rem 3rem;
+  border-radius: 2rem;
+  background-color: #f1faee;
+}
+
+.grafico-container .grafico {
+  width: 10rem;
+  height: 90%;
+}
+
+.box-consulta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.box-consulta label {
+  color: #212121;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.3rem;
+}
+
+.box-consulta select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 25rem;
+  padding: 1.5rem 4rem 1.5rem 1rem;
+  outline: 0;
+  border: 0;
+  border-radius: 0.5rem;
+  background: url(../icon/arrow-down-svgrepo-com.svg) no-repeat right 0.8em center/1.4em, linear-gradient(to left, #48CAE4 3em, #48CAE4 3em) ;
+  color: #212121;
+  box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.3rem;
+}
+
+.box-consulta select::-ms-expand {
+  display: none;
+}
+
+.box-consulta select:focus {
+  outline: none;
+}
+
+.box-consulta select option {
+  padding: 1.5rem 2rem;
+  color: #212121;
+  background-color: #f1faee;
 }
 
 @media screen and (max-width: 991px){

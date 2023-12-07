@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../assets/css/botoes.css">
     <link rel="stylesheet" href="../assets/css/index.css">
     <link rel="stylesheet" href="../assets/css/consumo.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
     <!-- Header -->
@@ -29,142 +30,110 @@
                 <li><a href="">Energia</a></li>
             </ul>
         </nav>
-        <button class="login btn-padrao">
-            <a href="#" class="icone">ENTRAR</a>
-        </button>
+        <div class="user-button login" id="user-button">
+            <i class="fa-regular fa-circle-user"></i>
+        </div>
+        <div class="menu-user menu-user-before" id="menu-user">
+            <ul>
+                <li><a href="">Meu consumo</a></li>
+                <li><a href="">Sair</a></li>
+            </ul>
+        </div>
     </header>
 
     <!-- Main -->
 
     <main>
 
-        <!-- Vertical Tabs -->
+        <!-- Gráficos -->
+      
+      <section class="grafico-box consumidor">
 
-        <section class="container-tabs" data-aos="fade-right">
-            <div class="topico">Consumo</div>
-            <div class="vertical-tabs">
+        <div class="titulo-padrao" data-aos="fade-up">
+          <h2>Consumo</h2>
+        </div>
 
-                <!-- Menu das Tabs -->
+        <div class="grafico-container" data-aos="fade-up">
 
-                <input type="radio" name="slider" checked id="grafico">
-                <input type="radio" name="slider" id="mapa">
-                <input type="radio" name="slider" id="alertas">
-                <div class="tabs-lista">
-                    <label for="grafico" class="grafico">
-                        <i class="fa-solid fa-chart-line"></i>
-                        <span class="titulo-lista">Gráfico</span>
-                    </label>
-                    <label for="mapa" class="mapa">
-                        <i class="fa-solid fa-map-location-dot"></i>
-                        <span class="titulo-lista">Mapa</span>
-                    </label>
-                    <label for="alertas" class="alertas">
-                        <i class="fa-solid fa-triangle-exclamation"></i>
-                        <span class="titulo-lista">Alertas</span>
-                    </label>
-                    <div class="slider"></div>
-                </div>
+            <!-- Div onde o gráfico ECharts será renderizado -->
+            <div id="echarts" class="grafico"></div>
 
-                <!-- Conteudo das Tabs -->
+            <div class="box-consulta">
 
-                <div class="conteudo-tabs">
-                    <div class="grafico conteudo">
-                        <div class="titulo-tabs">Gráfico</div>
-                        <div class="box-tabs">
-                            <!-- Div onde o gráfico ECharts será renderizado -->
-                            <div id="echarts" style="width: 1000px; height: 400px;"></div>
+              <!-- Caixa de seleção para escolher a consulta -->
+              <label for="consulta">Selecione uma consulta:</label>
+              <select id="consulta">
+                  <option value="consulta1">Consumo atual</option>
+                  <option value="consulta2">Consumo últimos meses</option>
 
-                            <!-- Caixa de seleção para escolher a consulta -->
-                            <label for="consulta">Selecione uma consulta:</label>
-                            <select id="consulta">
-                                <option value="consulta1">Consumo atual</option>
-                                <option value="consulta2">Consumo últimos meses</option>
-                                <!-- Adicione mais opções de consulta conforme necessário -->
-                            </select>
-                            <button onclick="atualizarGrafico()">Atualizar Gráfico</button>
-                        </div>
-                    </div>
-                    <div class="mapa conteudo">
-                        <div class="titulo-tabs">Mapa</div>
-                        <div class="box-tabs">
-                            <img src="../assets/img/mapa-teste.png" alt="">
-                        </div>
-                    </div>
-                    <div class="alertas conteudo">
-                        <div class="titulo-tabs">Alertas</div>
-                        <div class="box-tabs">
-                            <div class="accordion-box-tabs">
-                                <div class="accordion-container">
-                                    <div class="accordion-corpo">
-                                        <button class="accordion-button">
-                                            <span>
-                                                <i class="fa-solid fa-triangle-exclamation"></i>Alerta
-                                            </span>
-                                            <i class="arrow"></i>
-                                        </button>
-                                        <div class="accordion-conteudo">
-                                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores
-                                                doloribus laboriosam excepturi animi iusto distinctio a ratione dolores
-                                                officia ad quisquam sunt soluta quidem molestiae quia repudiandae
-                                                asperiores, esse inventore?</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-container">
-                                    <div class="accordion-corpo">
-                                        <button class="accordion-button">
-                                            <span>
-                                                <i class="fa-solid fa-person-digging"></i>Manutenção
-                                            </span>
-                                            <i class="arrow"></i>
-                                        </button>
-                                        <div class="accordion-conteudo">
-                                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores
-                                                doloribus laboriosam excepturi animi iusto distinctio a ratione dolores
-                                                officia ad quisquam sunt soluta quidem molestiae quia repudiandae
-                                                asperiores, esse inventore?</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-container">
-                                    <div class="accordion-corpo">
-                                        <button class="accordion-button">
-                                            <span>
-                                                <i class="fa-solid fa-droplet-slash"></i>Falta de Água
-                                            </span>
-                                            <i class="arrow"></i>
-                                        </button>
-                                        <div class="accordion-conteudo">
-                                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores
-                                                doloribus laboriosam excepturi animi iusto distinctio a ratione dolores
-                                                officia ad quisquam sunt soluta quidem molestiae quia repudiandae
-                                                asperiores, esse inventore?</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-container">
-                                    <div class="accordion-corpo">
-                                        <button class="accordion-button">
-                                            <span>
-                                                <i class="fa-solid fa-bolt-lightning"></i></i>Falta de Energia
-                                            </span>
-                                            <i class="arrow"></i>
-                                        </button>
-                                        <div class="accordion-conteudo">
-                                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores
-                                                doloribus laboriosam excepturi animi iusto distinctio a ratione dolores
-                                                officia ad quisquam sunt soluta quidem molestiae quia repudiandae
-                                                asperiores, esse inventore?</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                  <!-- Adicione mais opções de consulta conforme necessário -->
+              </select>
+              <button class="btn-padrao" onclick="atualizarGrafico()"><span>Atualizar Gráfico</span></button>
+              
             </div>
-        </section>
+        </div> 
+      </section>
 
+        <!-- Alertas -->
+
+      <section class="accordion-box">
+        <div class="titulo-padrao" data-aos="fade-up">
+          <h2>Alertas</h2>
+        </div>
+        <div class="accordion-container" data-aos="fade-up">
+          <div class="accordion-corpo">
+            <button class="accordion-button">
+              <span>
+                <i class="fa-solid fa-triangle-exclamation"></i>Alerta
+              </span>
+              <i class="arrow"></i>
+            </button>
+            <div class="accordion-conteudo">
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores doloribus laboriosam excepturi animi iusto distinctio a ratione dolores officia ad quisquam sunt soluta quidem molestiae quia repudiandae asperiores, esse inventore?</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-container" data-aos="fade-up">
+          <div class="accordion-corpo">
+            <button class="accordion-button">
+              <span>
+                <i class="fa-solid fa-person-digging"></i>Manutenção
+              </span>
+              <i class="arrow"></i>
+            </button>
+            <div class="accordion-conteudo">
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores doloribus laboriosam excepturi animi iusto distinctio a ratione dolores officia ad quisquam sunt soluta quidem molestiae quia repudiandae asperiores, esse inventore?</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-container" data-aos="fade-up">
+          <div class="accordion-corpo">
+            <button class="accordion-button">
+              <span>
+                <i class="fa-solid fa-droplet-slash"></i>Falta de Água
+              </span>
+              <i class="arrow"></i>
+            </button>
+            <div class="accordion-conteudo">
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores doloribus laboriosam excepturi animi iusto distinctio a ratione dolores officia ad quisquam sunt soluta quidem molestiae quia repudiandae asperiores, esse inventore?</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-container" data-aos="fade-up">
+          <div class="accordion-corpo">
+            <button class="accordion-button">
+              <span>
+                <i class="fa-solid fa-bolt-lightning"></i></i>Falta de Energia
+              </span>
+              <i class="arrow"></i>
+            </button>
+            <div class="accordion-conteudo">
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores doloribus laboriosam excepturi animi iusto distinctio a ratione dolores officia ad quisquam sunt soluta quidem molestiae quia repudiandae asperiores, esse inventore?</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
     </main>
     <!-- Footer -->
 
@@ -257,6 +226,7 @@
     <script>
         document.getElementById("year").innerHTML = new Date().getFullYear();
     </script>
+    <script src="../assets/js/menu-user-open.js"></script>
 </body>
 </body>
 
