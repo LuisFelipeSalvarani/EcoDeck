@@ -194,6 +194,7 @@ $lista = $pessoa->listar();
       <div class="botoes">
         <button class="btn-padrao" onclick="realizarCadastro()"><span>Salvar</span></button>
         <button class="btn-padrao" id="alterar"><span>Alterar</span></button>
+        <button class="btn-padrao" id="excluir"><a href="excluir/excluir-pessoa.php?id=<?= $linha['pessoa_id'] ?>">Excluir</a></button>
       </div>
     </div>
   </dialog>

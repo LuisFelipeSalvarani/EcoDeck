@@ -92,11 +92,11 @@ class Logradouro
     {
         // Define a string de consulta SQL para deletar um registro
         // da tabela "tb_turmas" com base ni seu ID
-        $sql = "DELETE FROM tb_logradouro WHERE id=" . $this->logradouro_id;
+        $sql = "DELETE FROM tb_logradouro WHERE logradouro_id=" . $this->logradouro_id;
 
         // Cria uma nova conexão PDO com o banco de dados localizado
         // no servidor "127.0.0.1" e autentica com o usuário "root" (sem senha)
-        include_once "Conexao.php";
+        $conn = new PDO('mysql:host=127.0.0.1;dbname=test','root','');
 
         // Executa a intrução SQL de exclusão utilizando o métedo
         // "exerc" do objeto de conexão PDO criado acima

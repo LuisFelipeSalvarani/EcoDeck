@@ -163,3 +163,9 @@ main {
   background-color: #f1faee;
   overflow: scroll;
 }
+
+.sair {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+}

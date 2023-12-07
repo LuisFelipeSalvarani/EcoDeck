@@ -25,7 +25,8 @@
               <a href="./dashboard.php?pagina=registros/reg-pessoa.php"><i class="fa-solid fa-user"></i>Pessoas</a>
             </li>
             <li>
-              <a href="./dashboard.php?pagina=registros/reg-logradouro.php"><i class="fa-solid fa-house-chimney"></i>Logradouro</a>
+              <a href="./dashboard.php?pagina=registros/reg-logradouro.php"><i
+                  class="fa-solid fa-house-chimney"></i>Logradouro</a>
             </li>
             <li>
               <a href="./dashboard.php?pagina=registros/reg-endereco.php"><i class="fa-solid fa-road"></i>Endereço</a>
@@ -41,10 +42,12 @@
           </a>
           <ul class="sidebar-interna">
             <li>
-              <a id="link" href="./dashboard.php?pagina=cadastro/cad-pessoa.php"><i class="fa-solid fa-user"></i>Pessoas</a>
+              <a id="link" href="./dashboard.php?pagina=cadastro/cad-pessoa.php"><i
+                  class="fa-solid fa-user"></i>Pessoas</a>
             </li>
             <li>
-              <a href="./dashboard.php?pagina=cadastro/cad-logradouro.php"><i class="fa-solid fa-house-chimney"></i>Logradouro</a>
+              <a href="./dashboard.php?pagina=cadastro/cad-logradouro.php"><i
+                  class="fa-solid fa-house-chimney"></i>Logradouro</a>
             </li>
             <li>
               <a href="./dashboard.php?pagina=cadastro/cad-endereco.php"><i class="fa-solid fa-road"></i>Endereço</a>
@@ -80,6 +83,8 @@
     }
     ?>
   </main>
+
+  <div class="sair"><button class="btn-padrao reverse"><a href="../login/usuario-logout-adm.php">Sair</a></button></div>
 
   <!-- Links JavaScript -->
 

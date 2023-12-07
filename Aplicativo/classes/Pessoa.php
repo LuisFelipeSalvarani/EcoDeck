@@ -10,6 +10,7 @@ class Pessoa
     public $rg;
     public $telefone;
     public $logradouro_id;
+    public $senha;
 
     // Define um método construtor na classe com parâmetro opcional
     public function __construct($pessoa_id = false)
@@ -92,11 +93,11 @@ class Pessoa
     {
         // Define a string de consulta SQL para deletar um registro
         // da tabela "tb_turmas" com base ni seu ID
-        $sql = "DELETE FROM tb_logradouro WHERE id=" . $this->logradouro_id;
+        $sql = "DELETE FROM tb_pessoa WHERE pessoa_id=" . $this->pessoa_id;
 
         // Cria uma nova conexão PDO com o banco de dados localizado
         // no servidor "127.0.0.1" e autentica com o usuário "root" (sem senha)
-        include_once "Conexao.php";
+        $conn = new PDO('mysql:host=127.0.0.1;dbname=test','root','');
 
         // Executa a intrução SQL de exclusão utilizando o métedo
         // "exerc" do objeto de conexão PDO criado acima
@@ -159,6 +160,32 @@ class Pessoa
             $stmt->bindParam(':rg', $this->rg);
             $stmt->bindParam(':telefone', $this->telefone);
             $stmt->bindParam(':logradouro_id', $this->logradouro_id);
+
+            // Execução da consulta
+            $stmt->execute();
+
+            return "sucesso";
+        } catch (PDOException $e) {
+            // Tratamento de exceções
+            return "Erro na atualização: " . $e->getMessage();
+        }
+    }
+    public function atualizarSenha()
+    {
+        try {
+            $conn = new PDO('mysql:host=127.0.0.1;dbname=test','root','');
+
+            // Consulta SQL preparada
+            $sql = "UPDATE tb_pessoa SET
+                    senha = :senha
+                WHERE pessoa_id = :pessoa_id";
+
+            // Preparação da consulta
+            $stmt = $conn->prepare($sql);
+
+            // Vinculação dos parâmetros
+            $stmt->bindParam(':pessoa_id', $this->pessoa_id);
+            $stmt->bindParam(':senha', $this->senha);
 
             // Execução da consulta
             $stmt->execute();

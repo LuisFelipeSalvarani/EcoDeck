@@ -4,11 +4,9 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-$cpf = $_POST["cpf-cadastro"];
-$nome = $_POST["nome"];
-$email = $_POST["email-cadastro"];
+$cpf = $_POST["cpf"];
 
-$sql = "SELECT cpf, pessoa_id FROM tb_pessoa WHERE cpf = :cpf";
+$sql = "SELECT cpf, pessoa_id, nome, email FROM tb_pessoa WHERE cpf = :cpf";
 
 include_once("../classes/Conexao.php");
 
@@ -20,7 +18,7 @@ $linha = $resultado->fetch();
 
 if ($linha === false) {
     // CPF não encontrado ou senha incorreta
-    echo "error";
+    header("Location: ./cpf-recuperar.php?erro=1");
 } else {
 
     $codigo = rand(100000,999999);
@@ -42,17 +40,17 @@ if ($linha === false) {
 
         //Recipients
         $mail->setFrom('atendimento@fatec.com', 'Atendimento');
-        $mail->addAddress($email, $nome);
+        $mail->addAddress($linha['email'], $linha['nome']);
 
         //Content
         $mail->isHTML(true);
         $mail->Subject = 'Primeiro acesso EcoDeck';
-        $mail->Body = "Prezado(a) " . $nome . "<br>Segue o código para o cadastro da senha<br>" . $codigo;
-        $mail->AltBody = "Prezado(a) " . $nome . "\n\nSegue o código para o cadastro da senha\n\n" . $codigo;
+        $mail->Body = "Prezado(a) " . $linha['nome'] . "<br>Segue o código para o cadastro da senha<br>" . $codigo;
+        $mail->AltBody = "Prezado(a) " . $linha['nome'] . "\n\nSegue o código para o cadastro da senha\n\n" . $codigo;
 
         $mail->send();
 
-        header("Location: ./codigo-senha.php?id={$linha['pessoa_id']}&codigo={$codigo}");
+        header("Location: ./codigo-recuperar-senha.php?id={$linha['pessoa_id']}&codigo={$codigo}");
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }

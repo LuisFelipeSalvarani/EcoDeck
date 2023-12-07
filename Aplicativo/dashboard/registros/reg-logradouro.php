@@ -171,6 +171,7 @@ $lista = $logradouro->listar();
       <div class="botoes">
         <button class="btn-padrao" onclick="realizarCadastro()"><span>Salvar</span></button>
         <button class="btn-padrao" id="alterar"><span>Alterar</span></button>
+        <button class="btn-padrao" id="excluir"><a href="excluir/excluir-logradouro.php?id=<?= $linha['logradouro_id'] ?>">Excluir</a></button>
       </div>
     </div>
   </dialog>

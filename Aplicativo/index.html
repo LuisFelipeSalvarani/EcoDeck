@@ -12,7 +12,7 @@
     <!-- Header -->
 
     <header>
-      <div class="logo">
+      <div class="logo" id="topo">
         <img src="./assets/img/logo.png" alt="" />
       </div>
       <div class="hamburguer" id="hamburguer">
@@ -23,13 +23,12 @@
       <nav>
         <ul class="menu-links links-hover links-before-hover" id="menu-links">
           <li><a href="">Home</a></li>
-          <li><a href="">Alertas</a></li>
-          <li><a href="">Água</a></li>
-          <li><a href="">Energia</a></li>
+          <li><a href="#alertas">Alertas</a></li>
+          <li><a href="#consumo">Consumo</a></li>
         </ul>
       </nav>
       <button class="login btn-padrao">
-        <a href="#" class="icone">ENTRAR</a>
+        <a href="./login/login.html" class="icone">ENTRAR</a>
       </button>
     </header>
 
@@ -51,7 +50,7 @@
       
       <!-- Alertas -->
 
-      <section class="accordion-box">
+      <section class="accordion-box" id="alertas">
         <div class="titulo-padrao" data-aos="fade-up">
           <h2>Alertas</h2>
         </div>
@@ -111,7 +110,7 @@
       
       <!-- Gráficos -->
       
-      <section class="grafico-box">
+      <section class="grafico-box" id="consumo">
 
         <div class="titulo-padrao" data-aos="fade-up">
           <h2>Consumo</h2>
@@ -145,45 +144,17 @@
     <footer>
       <div class="footer-corpo" data-aos="fade-up">
         <div class="footer-colunas">
-          <!-- <section class="footer-logo">
+          <section class="footer-logo">
             <h2>
               <img src="./assets/img/logo.png" alt="" />
             </h2>
-          </section> -->
-          <section>
-            <h3>Consumo</h3>
-            <ul class="links-hover links-before-hover">
-              <li title="Água"><a href="">Água</a></li>
-              <li title="Energia"><a href="">Energia</a></li>
-              <li title="Água"><a href="">Água</a></li>
-              <li title="Energia"><a href="">Energia</a></li>
-            </ul>
           </section>
           <section>
-            <h3>Consumo</h3>
+            <h3>Links</h3>
             <ul class="links-hover links-before-hover">
-              <li title="Água"><a href="">Água</a></li>
-              <li title="Energia"><a href="">Energia</a></li>
-              <li title="Água"><a href="">Água</a></li>
-              <li title="Energia"><a href="">Energia</a></li>
-            </ul>
-          </section>
-          <section>
-            <h3>Consumo</h3>
-            <ul class="links-hover links-before-hover">
-              <li title="Água"><a href="">Água</a></li>
-              <li title="Energia"><a href="">Energia</a></li>
-              <li title="Água"><a href="">Água</a></li>
-              <li title="Energia"><a href="">Energia</a></li>
-            </ul>
-          </section>
-          <section>
-            <h3>Consumo</h3>
-            <ul class="links-hover links-before-hover">
-              <li title="Água"><a href="">Água</a></li>
-              <li title="Energia"><a href="">Energia</a></li>
-              <li title="Água"><a href="">Água</a></li>
-              <li title="Energia"><a href="">Energia</a></li>
+              <li title="Topo"><a href="#topo">Topo</a></li>
+              <li title="Alertas"><a href="#alertas">Alertas</a></li>
+              <li title="Consumo"><a href="#consumo">Consumo</a></li>
             </ul>
           </section>
         </div>

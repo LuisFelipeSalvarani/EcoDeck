@@ -116,6 +116,7 @@ $lista = $endereco->listar();
       <div class="botoes">
         <button class="btn-padrao" onclick="realizarCadastro()"><span>Salvar</span></button>
         <button class="btn-padrao" id="alterar"><span>Alterar</span></button>
+        <button class="btn-padrao" id="excluir"><a href="excluir/excluir-endereco.php?id=<?= $linha['endereco_id'] ?>">Excluir</a></button>
       </div>
     </div>
   </dialog>
